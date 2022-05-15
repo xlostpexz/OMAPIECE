@@ -137,34 +137,13 @@ spawn(function()
    game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
         if _G.Fa2 then
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Left Arm")
-}
-
-game:GetService("Players").LocalPlayer.Character.Melee.Combo.C0:FireServer(unpack(args))
-
+        game:GetService'VirtualUser':CaptureController()
+        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
         end
     end)
 end) 
 end)
 
-spawn(function()
-   game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if _G.Fa2 then
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Left Arm")
-}
-
-game:GetService("Players").LocalPlayer.Character.Melee.Combo.C0:FireServer(unpack(args))
-
-
-        end
-    end)
-end) 
-end)
 
 spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
