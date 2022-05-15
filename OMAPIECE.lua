@@ -29,6 +29,10 @@ farm:addToggle("Auto Farm", _G.Fa, function(value)
 _G.Fa = value
 end)
 
+farm:addToggle("Auto Skill - Combat", _G.Skill, function(value)
+_G.Skill = value
+end)
+
 farm:addToggle("Auto Attack", _G.Fa2, function(value)
 _G.Fa2 = value
 end)
@@ -181,6 +185,30 @@ spawn(function()
     pcall(function()
         if _G.Equip then
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
+        end
+    end)
+   end)
+end)
+
+spawn(function()
+   game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.Skill then
+game:GetService("Workspace").HitFX1:Destroy()
+        end
+    end)
+   end)
+end)
+
+spawn(function()
+   game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.Skill then
+local args = {
+    [1] = game:GetService("Players").LocalPlayer
+}
+
+game:GetService("Players").LocalPlayer.Character.Melee.Equip.Skill2.Fire:FireServer(unpack(args))
         end
     end)
    end)
